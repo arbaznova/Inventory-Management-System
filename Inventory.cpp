@@ -17,7 +17,7 @@ int choice = 0;
 
 // I think arrays are ok for now
 //Storing parameters in arrays for now.
-//later will change to vectors(like arraylists in java )
+//later will change to vectors
 int prodId[MAX_PRODUCTS];
 string prodName[MAX_PRODUCTS];
 int prodQty[MAX_PRODUCTS];
@@ -163,8 +163,6 @@ void showProducts()
       
 void addProduct() 
 {
-
-    // checking limit (sir said always check this)
     if (prodCount == MAX_PRODUCTS) {
         cout << "Inventory full.\n";
         return;
@@ -269,7 +267,7 @@ int retrievedata() {
         prodId[prodCount] = stoi(id);
         prodName[prodCount] = name;
         prodQty[prodCount] = stoi(qty);
-        prodPrice[prodCount] = stod(price);   // FIXED (was stoi)
+        prodPrice[prodCount] = stod(price);   
  
         prodCount++;
     }
@@ -390,6 +388,7 @@ void readOrders(){
 
     file.close();
 }
+
 
 
 
