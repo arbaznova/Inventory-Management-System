@@ -30,7 +30,7 @@ int orderQty[MAX_ORDERS];
 double orderPrice[MAX_ORDERS];
 string orderStatus[MAX_ORDERS];
 string orderedProductName[MAX_ORDERS];
-string orderedUnitPrice[MAX_ORDERS];
+double orderedUnitPrice[MAX_ORDERS];
 
 
 
@@ -60,6 +60,8 @@ int main() {
    
     retrievedata();
     readOrders();
+    cout<<"Welcome to the Inventory Management System\n";
+
     do {
         
         showMenu();
@@ -305,14 +307,18 @@ void placeOrder(){
     Totalprice=(prodPrice[i])*quantity;
     cout<<"Total price for the order: "<<Totalprice<<endl;
 
-    orderId[orderCount]=orderCount+1;
-    orderedProductId[orderCount]=id;
-    orderQty[orderCount]=quantity;
-    orderPrice[orderCount]=Totalprice;
+    orderId[orderCount] = orderCount+1;
+    orderedProductId[orderCount] = id;
+    orderQty[orderCount] = quantity;
+    orderPrice[orderCount] = Totalprice;
+    orderedProductName[orderCount] = prodName[i];
+    orderedUnitPrice[orderCount]   = prodPrice[i];
+
     saveOrder(orderCount);
 
     orderCount++;
 }
+
 
 void viewOrders() {
     if (orderCount == 0) {
@@ -388,7 +394,3 @@ void readOrders(){
 
     file.close();
 }
-
-
-
-
